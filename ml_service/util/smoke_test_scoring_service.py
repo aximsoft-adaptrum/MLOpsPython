@@ -6,9 +6,18 @@ from azureml.core.webservice import AksWebservice, AciWebservice
 from ml_service.util.env_variables import Env
 import secrets
 
+input_sample = numpy.array([[[  0],
+   [  0],
+   [  0],
+   [  0],
+   [  0],
+   [  0],
+   [ 54],
+   [101],
+   [ 73],
+   [388]]])
 
-input = {"data": [[1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
-                  [10, 9, 8, 7, 6, 5, 4, 3, 2, 1]]}
+input = {"data": input_sample}
 output_len = 2
 
 
