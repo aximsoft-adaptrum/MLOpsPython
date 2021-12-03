@@ -14,7 +14,8 @@ pr:
     include:
       - environment_setup/arm-templates/*
 
-pool: 'gokulml'
+pool:
+  vmImage: 'ubuntu-latest'
 
 variables:
   - group: devopsforai-aml-vg
