@@ -14,7 +14,7 @@ steps:
   inputs:
     testResultsFiles: '*-testresults.xml'
     testRunTitle: 'Linting & Unit tests'
-    failTaskOnFailedTests: true
+    failTaskOnFailedTests: false
   displayName: 'Publish test results'
 
 - task: PublishCodeCoverageResults@1
@@ -24,4 +24,4 @@ steps:
     codeCoverageTool: Cobertura
     summaryFileLocation: 'coverage.xml'
     reportDirectory: 'htmlcov'
-    failIfCoverageEmpty: true
+    failIfCoverageEmpty: false
