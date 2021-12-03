@@ -1,10 +1,8 @@
 # Continuous Integration (CI) pipeline that orchestrates the training, evaluation, and registration of the sbenergy model.
-
 resources:
   containers:
   - container: mlops
-    image: mlops/sbenergy
-    endpoint: acrconnection
+    image: mcr.microsoft.com/mlops/python:latest
 
 pr: none
 trigger:
