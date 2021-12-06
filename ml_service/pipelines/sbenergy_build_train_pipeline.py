@@ -14,7 +14,7 @@ def get_absPath(filename):
     path = os.path.abspath(
         os.path.join(
             os.path.dirname(
-                __file__), os.path.pardir, "pipelines", filename
+                __file__), os.path.pardir, "data", filename
         )
     )
     return path
@@ -64,7 +64,7 @@ def main():
     )
     print('data file path********', data_file_path_param)
     caller_run_id_param = PipelineParameter(name="caller_run_id", default_value="none")  # NOQA: E501
-    print('absolute path*****', get_absPath('run_train_pipeline.py'))
+    print('absolute path*****', get_absPath('juno_3month_one_hour.csv'))
     # Get dataset name
     dataset_name = e.dataset_name
     print('dataset name ********', e.dataset_name)
