@@ -54,6 +54,7 @@ def main():
     # Get dataset name
     dataset_name = e.dataset_name
     # Check to see if dataset exists
+    print('datasets**************', aml_workspace.datasets)
     if dataset_name not in aml_workspace.datasets:
         # This call creates an example CSV from sklearn sample data. If you
         # have already bootstrapped your project, you can comment this line
@@ -63,7 +64,7 @@ def main():
         # Use a CSV to read in the data set.
         file_name = "juno_3month_one_hour.csv"
         
-        if not os.path.exists("run_train_pipeline.py"):
+        if not os.path.exists("MLOpsPython/ml_service/pipelines/run_train_pipeline.py"):
             raise Exception(
                 'Could not find py at "%s". If you have bootstrapped your project, you will need to provide a CSV.'  # NOQA: E501
                 % file_name
