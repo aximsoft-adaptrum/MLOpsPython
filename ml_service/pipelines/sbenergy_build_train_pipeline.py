@@ -9,15 +9,6 @@ from ml_service.util.env_variables import Env
 from ml_service.util.manage_environment import get_environment
 import os
 
-def get_absPath(filename):
-    """Returns the path of the notebooks folder"""
-    path = os.path.abspath(
-        os.path.join(
-            os.path.dirname(
-                __file__), os.path.pardir, "data", filename
-        )
-    )
-    return path
 
 def main():
     e = Env()
@@ -45,7 +36,6 @@ def main():
     )  #
     run_config = RunConfiguration()
     run_config.environment = environment
-    print('datastore name ***********', e.datastore_name)
     if e.datastore_name:
         datastore_name = e.datastore_name
     else:
@@ -53,21 +43,16 @@ def main():
     run_config.environment.environment_variables[
         "DATASTORE_NAME"
     ] = datastore_name  # NOQA: E501
-    print('default model ****', e.model_name)
     model_name_param = PipelineParameter(name="model_name", default_value=e.model_name)  # NOQA: E501
-    print('model_name-param*****',model_name_param )
     dataset_version_param = PipelineParameter(
         name="dataset_version", default_value=e.dataset_version
     )
     data_file_path_param = PipelineParameter(
         name="data_file_path", default_value="none"
     )
-    print('data file path********', data_file_path_param)
     caller_run_id_param = PipelineParameter(name="caller_run_id", default_value="none")  # NOQA: E501
-    print('absolute path*****', get_absPath('juno_3month_one_hour.csv'))
     # Get dataset name
     dataset_name = e.dataset_name
-    print('dataset name ********', e.dataset_name)
     # Check to see if dataset exists
     if dataset_name not in aml_workspace.datasets:
         # This call creates an example CSV from sklearn sample data. If you
@@ -76,7 +61,7 @@ def main():
         # create_sample_data_csv()
 
         # Use a CSV to read in the data set.
-        file_name = "/__w/11/s/data/juno_3month_one_hour.csv"
+        file_name = "juno_3month_one_hour.csv"
 
         if not os.path.exists(file_name):
             raise Exception(
