@@ -50,6 +50,9 @@ def main():
     data_file_path_param = PipelineParameter(
         name="data_file_path", default_value="none"
     )
+    print('train_script_path*********',e.train_script_path)
+    print('sources_directory_train*********',e.sources_directory_train)
+    print('evaluate_script_path*********',e.evaluate_script_path)
     caller_run_id_param = PipelineParameter(name="caller_run_id", default_value="none")  # NOQA: E501
     # Get dataset name
     dataset_name = e.dataset_name
