@@ -62,6 +62,12 @@ def main():
 
         # Use a CSV to read in the data set.
         file_name = "juno_3month_one_hour.csv"
+        
+        if not os.path.exists("run_train_pipeline.py"):
+            raise Exception(
+                'Could not find py at "%s". If you have bootstrapped your project, you will need to provide a CSV.'  # NOQA: E501
+                % file_name
+            )
 
         if not os.path.exists(file_name):
             raise Exception(
