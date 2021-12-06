@@ -36,7 +36,7 @@ def main():
     )  #
     run_config = RunConfiguration()
     run_config.environment = environment
-
+    print('datastore name ***********', e.datastore_name)
     if e.datastore_name:
         datastore_name = e.datastore_name
     else:
@@ -52,6 +52,7 @@ def main():
     data_file_path_param = PipelineParameter(
         name="data_file_path", default_value="none"
     )
+    print('data file path********', data_file_path_param)
     caller_run_id_param = PipelineParameter(name="caller_run_id", default_value="none")  # NOQA: E501
 
     # Get dataset name
@@ -65,7 +66,7 @@ def main():
         # create_sample_data_csv()
 
         # Use a CSV to read in the data set.
-        file_name = "data/juno_3month_one_hour.csv"
+        file_name = "juno_3month_one_hour.csv"
 
         if not os.path.exists(file_name):
             raise Exception(
