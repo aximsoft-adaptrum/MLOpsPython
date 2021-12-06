@@ -68,6 +68,8 @@ def main():
                 'Could not find py at "%s". If you have bootstrapped your project, you will need to provide a CSV.'  # NOQA: E501
                 % file_name
             )
+        else:
+            print('path exists************')
 
         if not os.path.exists(file_name):
             raise Exception(
