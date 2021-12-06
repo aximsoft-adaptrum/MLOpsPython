@@ -44,8 +44,9 @@ def main():
     run_config.environment.environment_variables[
         "DATASTORE_NAME"
     ] = datastore_name  # NOQA: E501
-
+    print('default model ****', e.model_name)
     model_name_param = PipelineParameter(name="model_name", default_value=e.model_name)  # NOQA: E501
+    print('model_name-param*****',model_name_param )
     dataset_version_param = PipelineParameter(
         name="dataset_version", default_value=e.dataset_version
     )
@@ -57,7 +58,7 @@ def main():
 
     # Get dataset name
     dataset_name = e.dataset_name
-
+    print('dataset name ********', e.dataset_name)
     # Check to see if dataset exists
     if dataset_name not in aml_workspace.datasets:
         # This call creates an example CSV from sklearn sample data. If you
